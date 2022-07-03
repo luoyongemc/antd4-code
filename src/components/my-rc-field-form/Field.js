@@ -41,7 +41,7 @@ export default function Field(props) {
   const { getFieldValue, setFieldsValue, registerFieldEntities } =
     React.useContext(FieldContext);
 
-  const [, forceUpdate] = React.useReducer((x) => x + 1, 0);
+  const [, forceUpdate] = React.useReducer((x) => x + 1, 0);//强制刷新一下即可达到forceUpdate的效果
 
   React.useLayoutEffect(() => {
     const unregister = registerFieldEntities({

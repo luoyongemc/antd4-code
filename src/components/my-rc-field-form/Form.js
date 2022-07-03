@@ -15,6 +15,7 @@ export default function Form(
     onFinishFailed,
   });
   return (
+    //这里的form不是传进来的form 是原生表单form
     <form
       onSubmit={(e) => {
         e.preventDefault();
