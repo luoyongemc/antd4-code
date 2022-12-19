@@ -1,11 +1,7 @@
 import React from 'react';
 
-import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
-
-import RequiredAuth from './auth/RequiredAuth';
-
-import LoginPage from './pages/LoginPage';
-import UserPage from './pages/UserPage';
+// import { BrowserRouter as Router, Routes, Route, Link, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Link, Outlet } from './mini-react-router';
 
 function App() {
     return (
@@ -13,17 +9,8 @@ function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Layout />}>
-                        <Route index element={<Home />} />
-                        <Route
-                            path="user"
-                            element={
-                                <RequiredAuth>
-                                    <UserPage />
-                                </RequiredAuth>
-                            }
-                        />
-                        <Route path="login" element={<LoginPage />} />
-                        <Route path="*" element={<NoMatch />} />
+                        <Route path="/" element={<Home />} />
+                        <Route path="product" element={<Product />} />
                     </Route>
                 </Routes>
             </Router>
@@ -35,8 +22,7 @@ function Layout(props) {
     return (
         <div className="border">
             <Link to="/">首页</Link>
-            <Link to="/user">用户中心</Link>
-            <Link to="/about">关于</Link>
+            <Link to="/product">商品</Link>
 
             <Outlet />
         </div>
@@ -51,10 +37,10 @@ function Home() {
     );
 }
 
-function NoMatch() {
+function Product() {
     return (
         <div>
-            <h1>404</h1>
+            <h1>Product</h1>
         </div>
     );
 }
